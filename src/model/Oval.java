@@ -1,5 +1,10 @@
 package model;
 
-public class Oval {
+public class Oval extends PaintObject {
+	
+	public Oval() {
+		super();
+		
+	}
 
 }
