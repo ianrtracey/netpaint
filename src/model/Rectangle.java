@@ -2,7 +2,7 @@ package model;
 
 public class Rectangle extends PaintObject {
 	
-	public Rectangle(Color color, Coordinates coordinates, int width, int height) {
+	public Rectangle(MyColor color, Coordinates coordinates, int width, int height) {
 		super(color, coordinates, width, height);
 	}
 	

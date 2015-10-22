@@ -4,12 +4,12 @@ import java.awt.image.BufferedImage;
 
 public abstract class PaintObject{
 	
-	Color color;
+	MyColor color;
 	Coordinates coordinates, coordinates2;
 	int height, width;
 	BufferedImage image;
 	
-	public PaintObject(Color color, Coordinates coordinates, int width, int height) {
+	public PaintObject(MyColor color, Coordinates coordinates, int width, int height) {
 		this.color        = color;
 		this.coordinates  = coordinates;
 		this.width        = width;
@@ -18,7 +18,7 @@ public abstract class PaintObject{
 		this.coordinates2 = null;
 	}
 	
-	public Color getColor() {
+	public MyColor getColor() {
 		return color;
 	}
 	

@@ -1,10 +1,10 @@
 package model;
 
-public class Color {
+public class MyColor {
 		
 		int red, blue, green;
 		
-		public Color(int red, int blue, int green) {
+		public MyColor(int red, int blue, int green) {
 			this.red   = red;
 			this.blue  = blue;
 			this.green = green;
