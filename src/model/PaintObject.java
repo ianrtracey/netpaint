@@ -1,6 +1,8 @@
 package model;
 
 import java.awt.image.BufferedImage;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
 public abstract class PaintObject{
 	
@@ -14,7 +16,7 @@ public abstract class PaintObject{
 		this.coordinates  = coordinates;
 		this.width        = width;
 		this.height		  = height;
-		this.image        =  null;
+		this.image        = null;
 		this.coordinates2 = null;
 	}
 	
@@ -50,9 +52,9 @@ public abstract class PaintObject{
 		return height;
 	}
 	
-
-	
 	abstract void draw();
+	
+
 
 
 	
