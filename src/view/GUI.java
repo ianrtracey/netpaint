@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JColorChooser;
@@ -13,7 +14,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame{
 	
 	public static void main(String[] args) {
 		GUI myGui = new GUI();
@@ -36,6 +37,8 @@ public class GUI extends JFrame {
 	JPanel        colorChooserPanel;
 	JColorChooser myColorChooser;
 	
+	
+	
 	public GUI() {
 		this.initGUI();
 		this.initListeners();
@@ -52,6 +55,8 @@ public class GUI extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		
+		
+		
 		// Image Canvas
 		myCanvas = new Canvas();
 		myImageScrollPane = new JScrollPane(myCanvas);
@@ -63,12 +68,16 @@ public class GUI extends JFrame {
 		rectButton     = new JRadioButton("Draw Rectangle");		
 		ovalButton     = new JRadioButton("Draw Oval");		
 		imagButton     = new JRadioButton("Draw Image");	
-		drawSelections = new ButtonGroup();
 		
+		drawSelections = new ButtonGroup();
 		drawSelections.add(lineButton);
 		drawSelections.add(rectButton);
 		drawSelections.add(ovalButton);
 		drawSelections.add(imagButton);
+		
+		// INITIALIZES and synchronizes Line Radio button to ON and draw mode to Line
+		lineButton.setSelected(true);
+		myCanvas.setDrawMode("line");
 		
 		myButtonContainer = new JPanel();
 		myButtonContainer.add(lineButton);
@@ -91,16 +100,26 @@ public class GUI extends JFrame {
 	} // Ends Method initGUI
 	
 	private void initListeners() {
-		// TODO Auto-generated method stub
+		lineButton.addActionListener(new radioButtonListener("line"));
+		rectButton.addActionListener(new radioButtonListener("rect"));
+		ovalButton.addActionListener(new radioButtonListener("oval"));
+		imagButton.addActionListener(new radioButtonListener("imag"));
 		
 	} // Ends Method initListeners
 	
 	
 	private class radioButtonListener implements ActionListener{
 
+		private String whichButton;
+		
+		public radioButtonListener(String string) {
+			this.whichButton = string;
+		}
+
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			System.out.println(e.toString());
+			//System.out.println(whichButton);
+			myCanvas.setDrawMode(whichButton);
 			
 		}
 		

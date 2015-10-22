@@ -17,18 +17,34 @@ import javax.swing.JPanel;
 
 
 
+
+
+
 import model.*;
 
 public class Canvas extends JPanel implements ActionListener, MouseListener {
 	
+	
+	
+	private String drawMode;
+
 	public Canvas() {
 		this.setBackground(Color.WHITE);
 		this.setPreferredSize(new Dimension(2160,2160));
+	
+		this.addMouseListener(this); // Super important
+	}
+	
+	public void setDrawMode(String m){
+		this.drawMode = m;
+		System.out.println(drawMode);
 	}
 	
 	private void draw(Graphics g) throws IOException {
 		
-		this.IansProofOfConceptDrawCommands(g);
+		
+		
+		//this.IansProofOfConceptDrawCommands(g);
 		
 	}
 	
@@ -45,31 +61,31 @@ public class Canvas extends JPanel implements ActionListener, MouseListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		//System.out.println("MOUSE CLICKED");
 		
 	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		//System.out.println("MOUSE PRESSED");
 		
 	}
 
 	@Override
 	public void mouseReleased(MouseEvent e) {
-		// TODO Auto-generated method stub
+		//System.out.println("MOUSE RELEASED");
 		
 	}
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		// TODO Auto-generated method stub
+		//System.out.println("MOUSE ENTERED");
 		
 	}
 
 	@Override
 	public void mouseExited(MouseEvent e) {
-		// TODO Auto-generated method stub
+		//System.out.println("MOUSE EXITED");
 		
 	}
 
@@ -78,6 +94,9 @@ public class Canvas extends JPanel implements ActionListener, MouseListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	
 	
 	private void IansProofOfConceptDrawCommands(Graphics g){
 		
@@ -98,5 +117,6 @@ public class Canvas extends JPanel implements ActionListener, MouseListener {
 		} catch (IOException e) {}
 		
 	} // Ends Method IansProofOfConceptDrawCommands
+
 
 }
