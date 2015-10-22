@@ -1,23 +1,32 @@
 package view;
 
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.JPanel;
+
+import model.*;
+import model.PaintObject;
 
 public class Canvas extends JPanel implements ActionListener, MouseListener {
 	
 	private void draw(Graphics g) {
 		
-		ArrayList<PaintObject> paintObject = new ArrayList<PaintObject>();
+		ArrayList<PaintObject> paintObjects = new ArrayList<PaintObject>();
+		
+		Line line = new Line(new Color(25,25,25), new Coordinates(10,10,150,150));
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
-		g2d.drawLine(20,40,250,40);
+		g2d.drawLine(line.getCoordinates().getX1(), line.getCoordinates().getY1(),
+					 line.getCoordinates().getX2(), line.getCoordinates().getY2());
+		
 
 		
 	}
